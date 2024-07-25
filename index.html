@@ -4,39 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1em;
-        }
-        main {
-            padding: 2em;
-        }
-        footer {
-            background-color: #f1f1f1;
-            padding: 1em;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
         <h1>Welcome to My Website</h1>
     </header>
     <main>
-        <p>This is a simple website created using GitHub Pages.</p>
+        <section>
+            <h2>About Me</h2>
+            <p>I'm a [your profession or interests], passionate about [your hobbies or fields of interest]. This website is a space where I document my projects, share insights, and explore various topics that intrigue me.</p>
+        </section>
+        <section>
+            <h2>Latest Projects</h2>
+            <ul>
+                <li><strong>Project 1:</strong> A brief description of your first project.</li>
+                <li><strong>Project 2:</strong> A brief description of your second project.</li>
+                <li><strong>Project 3:</strong> A brief description of your third project.</li>
+            </ul>
+            <button id="more-projects">Load More Projects</button>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 My Website</p>
     </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
+
