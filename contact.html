@@ -23,10 +23,24 @@
         <section>
             <h2>Get in Touch</h2>
             <p>Feel free to reach out to me through [preferred contact method, e.g., email, social media links]. I'm always open to discussing new ideas and collaborations.</p>
+            <form action="https://formspree.io/your-email" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="_replyto" required>
+                <br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <br>
+                <button type="submit">Send</button>
+            </form>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 My Website</p>
     </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
+
