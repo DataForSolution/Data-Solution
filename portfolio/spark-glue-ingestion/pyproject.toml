@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spark-ingestion-portfolio"
+version = "0.1.0"
+description = "Reproducible Spark/Glue catalog and ingestion-validation utilities reconstructed from AWS EMR coursework"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "jupyter>=1,<2"]
+spark = ["pyspark>=4.2,<4.3"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = "-q"
