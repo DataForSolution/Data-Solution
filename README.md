@@ -2,7 +2,7 @@
 
 This repository is a **curated portfolio of selected data science, machine learning, healthcare AI, responsible-AI, and data-engineering work**.
 
-It is not a raw archive of every notebook I have created. Older coursework and experiments are being reviewed individually. A project is promoted into [`portfolio/`](portfolio/) only when its provenance, methodology, reproducibility, and claims are strong enough to present publicly.
+It is not a raw archive of every notebook I have created. Older coursework and experiments are reviewed individually. A project is promoted into [`portfolio/`](portfolio/) only when its provenance, methodology, reproducibility, and claims are strong enough to present publicly.
 
 ## Portfolio principles
 
@@ -44,13 +44,13 @@ Each reconstructed project aims to:
 
 ## What is intentionally not promoted
 
-Some historical notebooks remain in the repository or in archival storage because they are useful learning evidence but do not meet the standard for a featured portfolio project. Examples include tutorial-derived notebooks, duplicate copies, projects with untraceable datasets, very small or synthetic samples, and analyses whose methodology cannot support their original claims.
-
-Keeping those artifacts out of the curated portfolio is deliberate.
+Historical notebooks, tutorials, duplicate copies, projects with untraceable datasets, very small experiments, and analyses whose methodology cannot support their original claims are not shown as featured projects. They may remain in archival storage or Git history when useful as learning/provenance evidence, but they are intentionally absent from the current portfolio surface.
 
 ## Repository status
 
-The `portfolio/` directory is the canonical location for reconstructed projects. Older root-level notebooks and legacy website files are retained temporarily as historical evidence while the broader repository-cleanup phase continues.
+The current branch is intentionally minimal: `README.md` plus the canonical `portfolio/` directory. Legacy root notebooks and old website files have been removed from the current tree so the repository listing itself reflects the curated standard.
+
+Each featured project maintains its own README, audit notes, source modules, tests, environment definition, and interpretation boundaries as appropriate.
 
 ## Use and interpretation
 
