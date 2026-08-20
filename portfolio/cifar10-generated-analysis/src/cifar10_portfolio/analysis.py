@@ -36,6 +36,7 @@ def prediction_table(probabilities, class_names: Sequence[str]) -> pd.DataFrame:
     sorted_probs = np.sort(probs, axis=1)
     margin = sorted_probs[:, -1] - sorted_probs[:, -2]
 
+    # Normalize entropy to [0,1], where 1 means maximally uncertain/uniform.
     safe = np.clip(probs, 1e-15, 1.0)
     entropy = -(safe * np.log(safe)).sum(axis=1) / np.log(probs.shape[1])
 
@@ -57,6 +58,7 @@ def top_confidence_indices(probabilities, *, n: int = 5) -> np.ndarray:
     if n < 1 or n > len(probs):
         raise ValueError("n must be between 1 and n_samples")
     confidence = probs.max(axis=1)
+    # Stable order makes ties reproducible: highest confidence, then lower index.
     return np.lexsort((np.arange(len(probs)), -confidence))[:n]
 
 
