@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chest-ct-portfolio"
+version = "0.1.0"
+description = "Reproducible educational reconstruction of a chest CT transfer-learning project"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26,<3",
+  "scikit-learn>=1.5,<2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "jupyter>=1,<2"]
+ml = ["tensorflow>=2.21,<2.22"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = "-q"
