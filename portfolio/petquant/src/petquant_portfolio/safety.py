@@ -20,8 +20,8 @@ def false_reliable_rate(
 
     A false-reliable case is a reference label of ``unreliable`` paired with a
     model prediction of ``reliable``. The function fails closed when there are
-    no unreliable reference cases by returning ``None`` for the rate rather
-    than reporting an artificial 0% rate.
+    no unreliable reference cases by returning ``None`` for the rate rather than
+    reporting an artificial 0% rate.
     """
     truth = list(y_true)
     pred = list(y_pred)
