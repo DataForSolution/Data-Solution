@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+.env.*
+.ipynb_checkpoints/
+*.h5
+*.keras
+*.ckpt
+*.zip
+chest_ct_scan_dataset/
+Data/
+.DS_Store
