@@ -4,7 +4,7 @@ This project reconstructs 2024 DATA 430 coursework that used `fraud_oracle.csv` 
 
 The public version focuses on the defensible lesson in the historical work: **class imbalance makes overall accuracy a poor fraud-detection metric, and model ranking quality must be separated from the decision threshold used to flag claims.**
 
-## Dataset and provenance
+## Data and licensing
 
 The audited CSV contains:
 
@@ -33,6 +33,24 @@ The dataset is **not redistributed** in this repository. See [`data/README.md`](
 - Random splitting mixes claims from 1994–1996. The reconstruction uses a chronological holdout to better reflect forward deployment.
 
 See [`docs/AUDIT.md`](docs/AUDIT.md).
+
+## Evaluation workflow
+
+```mermaid
+flowchart LR
+    A[1994 claims] --> B[Train preprocessing + model]
+    C[1995 claims] --> D[Select candidate + threshold]
+    B --> D
+    D --> E[Freeze pipeline and threshold]
+    F[1996 claims] --> G[One final holdout evaluation]
+    E --> G
+    G --> H[ROC-AUC 0.7442 / PR-AUC 0.1106]
+    G --> I[Recall 67.1% / precision 10.1%]
+    H --> J[Operational tradeoff, not deployment claim]
+    I --> J
+```
+
+The values shown are the audited deterministic reconstruction results below; the low precision is intentionally visible.
 
 ## Reconstructed evaluation design
 

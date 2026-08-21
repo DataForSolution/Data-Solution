@@ -28,6 +28,25 @@ Published reviews of this dataset note that zero values in plasma glucose, diast
 
 See [`docs/AUDIT.md`](docs/AUDIT.md) for details.
 
+## Evaluation workflow
+
+```mermaid
+flowchart LR
+    A[OpenML data ID 37] --> B[Schema validation]
+    B --> C[Zero-as-missing rules]
+    C --> D[Stratified train / validation / test split]
+    D --> E[Pipeline: impute + scale + model]
+    E --> F[Validation-only selection]
+    F --> G[One held-out test evaluation]
+    G --> H[Sensitivity, specificity, balanced accuracy, F1, ROC-AUC]
+```
+
+The workflow keeps all learned preprocessing inside the model pipeline and reserves the test set for final evaluation.
+
+## Data and licensing
+
+The reconstruction references [OpenML data ID 37](https://www.openml.org/d/37) and does not commit a dataset copy. Users should review the source record and its current terms before reuse; the README's narrow-population and missing-measurement boundaries remain part of the data contract.
+
 ## Reconstructed evaluation design
 
 1. Load/validate the OpenML-37 schema.

@@ -4,7 +4,7 @@ This project reconstructs the meaningful NLP evaluation work from a 2024 DATA 46
 
 The historical notebook compared Bag-of-Words classifiers and a VADER baseline, but its learned text vocabulary was fit **before** cross-validation and the final sample-review predictor reused the classifier left fitted on the last CV fold. The public reconstruction keeps the model-comparison lesson while correcting those evaluation defects.
 
-## Public dataset
+## Data and licensing
 
 The reconstruction targets the **Yelp subset** of UCI's *Sentiment Labelled Sentences* dataset:
 
@@ -33,6 +33,21 @@ The repository does not redistribute the dataset. See [`data/README.md`](data/RE
 - VADER assigns compound score `0` to the negative class by construction and is evaluated on the same full curated dataset without uncertainty analysis.
 
 See [`docs/AUDIT.md`](docs/AUDIT.md).
+
+## Evaluation workflow
+
+```mermaid
+flowchart LR
+    A[Licensed UCI Yelp sentences] --> B[Deterministic stratified folds]
+    B --> C[Fold-local TF-IDF pipeline]
+    C --> D[NB / Logistic / Linear SVM]
+    D --> E[Out-of-fold predictions]
+    E --> F[Balanced accuracy, precision, recall, F1]
+    F --> G[Choose one final pipeline]
+    G --> H[Refit on full development data]
+```
+
+Keeping vectorization inside each fold prevents held-out reviews from influencing the learned vocabulary.
 
 ## Reconstructed evaluation contract
 

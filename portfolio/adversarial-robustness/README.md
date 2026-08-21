@@ -21,6 +21,28 @@ A separate 2025 `Adversarial_Attacks.ipynb` is the UVADLC Tutorial 10 notebook w
 
 See [`docs/AUDIT.md`](docs/AUDIT.md) for the version map and correctness findings.
 
+## Robustness evaluation workflow
+
+```mermaid
+flowchart LR
+    A[Clean inputs] --> B[One preprocessing contract]
+    B --> C[Clean predictions]
+    B --> D[Bounded PGD attack]
+    D --> E[Adversarial predictions]
+    C --> F[Eligible clean-correct denominator]
+    E --> G[Attack success / robust accuracy]
+    E --> H[Defence parameter sweep]
+    C --> H
+    H --> I[Clean utility + adversarial recovery]
+    I --> J[Adaptive-evaluation boundary]
+```
+
+The diagram captures the implemented denominator and preprocessing corrections; it does not imply certification against adaptive attacks.
+
+## Data and licensing
+
+No ImageNet data, pretrained weights, or historical tutorial notebook is redistributed. Unit tests use small deterministic tensors, while optional PyTorch and ART integrations retain their upstream licenses.
+
 ## Why the historical sweep tables are not reused as benchmark results
 
 The assignment-specific batch sweeps created a new ART `KerasClassifier(model=model, clip_values=(0, 255))` without the ResNet50 preprocessing adapter used earlier in the starter notebook. As a result, the sweep path did not preserve the model's expected input contract.

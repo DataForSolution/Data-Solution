@@ -4,18 +4,18 @@ These projects were selected from a larger archive of notebooks, coursework, exp
 
 ## Project index
 
-| Project | Domain | What the reconstruction demonstrates |
-| --- | --- | --- |
-| [PETQuant Reliability](petquant/) | Healthcare AI / PET | Small-data validation, data-quality contracts, synthetic demonstration, cautious model claims |
-| [Chest CT Classification](chest-ct-classification/) | Medical imaging / Deep learning | Transfer-learning discipline, overfitting analysis, deterministic validation/test handling |
-| [Pima Diabetes ML Evaluation](pima-diabetes-ml/) | Healthcare ML | Leakage-safe preprocessing, missing-measurement handling, SVM/MLP comparison, sensitivity/specificity |
-| [SHAP + LIME Explainability](shap-lime-explainability/) | Explainable AI | Stable class alignment, scaled modeling, SHAP/LIME attribution aggregation and interpretation limits |
-| [Fairness Evaluation](fairness-evaluation/) | Responsible AI | Statistical parity, disparate impact, opportunity/odds metrics, fixed-label threshold evaluation |
-| [Adversarial Robustness](adversarial-robustness/) | ML security / robustness | Bounded PGD, threat-model discipline, clean-vs-robust utility, preprocessing consistency |
-| [CIFAR-10 Generated-Image Analysis](cifar10-generated-analysis/) | Generative AI | Probability validation, classifier-response diagnostics, entropy/margin analysis, realism boundary |
-| [Automobile Insurance Fraud Classification](insurance-fraud-classification/) | Imbalanced ML | Temporal holdout, PR-AUC, threshold selection, minority-class recall and operational tradeoffs |
-| [Restaurant Review Sentiment Evaluation](restaurant-sentiment-evaluation/) | NLP | Fold-local TF-IDF, stratified out-of-fold comparison, provenance-safe public data substitution |
-| [AWS Glue + EMR PySpark Ingestion Validation](spark-glue-ingestion/) | Data engineering | Catalog resolution, schema/row validation, embedded-header detection, fail-closed ingestion checks |
+| Project | Domain | Core technologies | What the reconstruction demonstrates |
+| --- | --- | --- | --- |
+| [PETQuant Reliability](petquant/) | Healthcare AI / PET | Python, NumPy, pytest | Small-data validation, data-quality contracts, conservative reliability gates |
+| [Chest CT Classification](chest-ct-classification/) | Medical imaging | TensorFlow, scikit-learn, pytest | Transfer-learning discipline, overfitting analysis, deterministic validation/test handling |
+| [Pima Diabetes ML Evaluation](pima-diabetes-ml/) | Healthcare ML | scikit-learn, pandas, OpenML | Leakage-safe preprocessing, missing-measurement handling, sensitivity/specificity |
+| [SHAP + LIME Explainability](shap-lime-explainability/) | Explainable AI | SHAP, LIME, scikit-learn | Stable class alignment, attribution aggregation, interpretation limits |
+| [Fairness Evaluation](fairness-evaluation/) | Responsible AI | Python, AIF360, pytest | Group-fairness metrics, fixed-label threshold evaluation, utility tradeoffs |
+| [Adversarial Robustness](adversarial-robustness/) | ML security | PyTorch, ART, pytest | Bounded PGD, threat-model discipline, clean-vs-robust utility |
+| [Automobile Insurance Fraud Classification](insurance-fraud-classification/) | Imbalanced ML | scikit-learn, pandas, PR-AUC | Temporal holdout, threshold selection, minority-class tradeoffs |
+| [Restaurant Review Sentiment Evaluation](restaurant-sentiment-evaluation/) | NLP | TF-IDF, scikit-learn, VADER | Fold-local text modeling and stratified out-of-fold comparison |
+| [CIFAR-10 Generated-Image Analysis](cifar10-generated-analysis/) | Generative AI evaluation | NumPy, classifier diagnostics, pytest | Probability validation, entropy/margin analysis, realism boundary |
+| [AWS Glue + EMR PySpark Ingestion Validation](spark-glue-ingestion/) | Data engineering | PySpark, AWS Glue, EMR | Catalog resolution, embedded-header detection, fail-closed ingestion checks |
 
 ## Selection standard
 

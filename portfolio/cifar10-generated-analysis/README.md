@@ -31,6 +31,27 @@ The later `Data-450-Assign-4B_CIFAR10GAN-Complete-1_.ipynb` adds assignment-spec
 
 See [`docs/AUDIT.md`](docs/AUDIT.md) for the version map and findings.
 
+## Analysis workflow
+
+```mermaid
+flowchart LR
+    A[Generated image batch] --> B[Fixed classifier probabilities]
+    B --> C[Probability contract validation]
+    C --> D[Predicted-class coverage]
+    C --> E[Classifier confidence]
+    C --> F[Entropy + top-two margin]
+    D --> G[Diagnostic summary]
+    E --> G
+    F --> G
+    G --> H[Not a realism or quality score]
+```
+
+Because the historical generator and classifier artifacts are unavailable, this methodology diagram is used instead of an invented result chart.
+
+## Data and licensing
+
+No CIFAR-10 images, generated-image batch, tutorial model code, or trained model artifact is redistributed. The public notebook uses deterministic synthetic probabilities solely to exercise the independently written analysis contract.
+
 ## Reconstructed analysis contract
 
 1. Accept a batch of generated images and a **single batch** of classifier probabilities.

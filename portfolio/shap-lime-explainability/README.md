@@ -43,6 +43,27 @@ The recovered notebooks revealed several issues:
 
 See [`docs/AUDIT.md`](docs/AUDIT.md) for details.
 
+## Explanation workflow
+
+```mermaid
+flowchart LR
+    A[Wine dataset] --> B[Stratified split]
+    B --> C[Scaled MLP pipeline]
+    C --> D[Choose one explicit class]
+    D --> E[SHAP local attributions]
+    D --> F[LIME local attributions]
+    E --> G[Mean absolute contribution by feature]
+    F --> G
+    G --> H[Top-feature overlap + disagreement]
+    H --> I[Interpret model behavior, not truth]
+```
+
+The comparison aligns class and feature definitions before aggregation; agreement is not treated as proof that the model is correct.
+
+## Data and licensing
+
+The reconstruction uses scikit-learn's packaged Wine recognition dataset and commits no external data file. SHAP, LIME, scikit-learn, and the referenced historical tutorials retain their own licenses and attribution requirements; the audit records the tutorial provenance explicitly.
+
 ## Reconstructed approach
 
 1. Load the Wine dataset with stable class names.
