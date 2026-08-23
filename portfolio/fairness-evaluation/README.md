@@ -27,6 +27,25 @@ These saved outputs show the intended utility/fairness tradeoff: group-fairness 
 
 See [`docs/AUDIT.md`](docs/AUDIT.md) for details.
 
+## Historical evidence snapshot
+
+```mermaid
+flowchart LR
+    A[Adult dataset: sex as protected attribute] --> B[Historical baseline]
+    B --> C[MLP: BA 0.7440 / DI 0.2765]
+    B --> D[Logistic: BA 0.7437 / DI 0.2794]
+    C --> E[After mitigation: BA 0.7221 / DI 0.5369]
+    D --> F[After mitigation: BA 0.7018 / DI 0.7490]
+    E --> G[Utility and fairness reported together]
+    F --> G
+```
+
+`BA` is balanced accuracy and `DI` is disparate impact. These values are saved historical notebook observations, not newly reproduced benchmarks.
+
+## Data and licensing
+
+The public reconstruction does not redistribute the Adult dataset. The historical lineage is the official AIF360 optimized-preprocessing demo; AIF360 and its example code retain their upstream license, and dataset reuse remains subject to the source dataset's terms.
+
 ## Reconstructed evaluation contract
 
 The reusable public code intentionally separates **fairness measurement** from any particular mitigation algorithm:

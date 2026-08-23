@@ -31,6 +31,28 @@ The EMR notebook is the portfolio-relevant artifact because it records a real ca
 
 See [`docs/AUDIT.md`](docs/AUDIT.md) for details.
 
+## Ingestion-quality workflow
+
+```mermaid
+flowchart LR
+    A[Approved Glue database + table candidates] --> B[Resolve first existing table]
+    B --> C[Read Spark DataFrame]
+    C --> D[Schema + required-column checks]
+    C --> E[Expected row-count check]
+    C --> F[Embedded-header detection]
+    D --> G{All contracts pass?}
+    E --> G
+    F --> G
+    G -->|No| H[Fail closed before analytics]
+    G -->|Yes| I[Approved downstream use]
+```
+
+The flow makes the central evidence visible: a successful catalog read is only the start of ingestion validation.
+
+## Data and licensing
+
+No Home Credit dataset, AWS credential, catalog export, or cloud resource is distributed. The notebook uses Spark-compatible test doubles; reproducing the historical cloud path requires separately authorized data and AWS access under their applicable terms.
+
 ## Reconstructed engineering contract
 
 The public utilities provide:

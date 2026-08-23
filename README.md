@@ -30,11 +30,11 @@ Each reconstructed project aims to:
 - **[Fairness Evaluation](portfolio/fairness-evaluation/)** — explicit group-fairness metrics and threshold analysis with fixed reference labels and documented AIF360 provenance.
 - **[Adversarial Robustness](portfolio/adversarial-robustness/)** — bounded PGD and defense-evaluation reconstruction with preprocessing, threat-model, and denominator corrections.
 
-### Applied Machine Learning and Generative AI
+### Applied Machine Learning and AI
 
-- **[CIFAR-10 Generated-Image Analysis](portfolio/cifar10-generated-analysis/)** — classifier-response diagnostics for generated images with a clear distinction between model confidence and perceptual realism.
 - **[Automobile Insurance Fraud Classification](portfolio/insurance-fraud-classification/)** — temporal, imbalance-aware fraud evaluation showing why high accuracy can coexist with zero minority-class recall.
 - **[Restaurant Review Sentiment Evaluation](portfolio/restaurant-sentiment-evaluation/)** — leakage-safe NLP model comparison using fold-local TF-IDF pipelines and a licensed UCI Yelp data source.
+- **[CIFAR-10 Generated-Image Analysis](portfolio/cifar10-generated-analysis/)** — classifier-response diagnostics for generated images with a clear distinction between model confidence and perceptual realism.
 
 ### Data Engineering
 

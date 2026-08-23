@@ -25,6 +25,29 @@ A later historical rule-vs-ML evaluation showed a 29.3% false-reliable rate (41/
 
 See [`docs/VALIDATION.md`](docs/VALIDATION.md) for the full reconstruction assessment.
 
+## Reliability workflow
+
+```mermaid
+flowchart LR
+    A[Acquisition context] --> B[Schema and feature validation]
+    B --> C[Deterministic safety rules]
+    B --> D[Advisory score]
+    C --> E{Rule says unreliable?}
+    D --> F{Evidence supports reliability?}
+    E -->|Yes| G[Fail closed: unreliable]
+    E -->|No| F
+    F -->|No or unknown| G
+    F -->|Yes| H[Advisory reliability output]
+    G --> I[False-reassurance monitoring]
+    H --> I
+```
+
+The diagram reflects the implemented safety contract: deterministic rules remain authoritative, missing evidence fails closed, and false reassurance is measured explicitly.
+
+## Data and licensing
+
+No patient data, PHI, private cloud export, or trained model artifact is distributed. The notebook uses deterministic synthetic inputs to demonstrate the public safety utilities; any future clinical dataset would require independent governance, licensing, and validation review.
+
 ## Repository structure
 
 ```text

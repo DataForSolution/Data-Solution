@@ -23,6 +23,25 @@ Those results indicate substantial overfitting and are preserved here as an engi
 
 See [`docs/AUDIT.md`](docs/AUDIT.md) for the reconstruction notes.
 
+## Evaluation workflow
+
+```mermaid
+flowchart LR
+    A[Source dataset] --> B[Validate classes and supplied splits]
+    B --> C[Train: 613 images]
+    B --> D[Validation: 72 images]
+    B --> E[Test: 315 images]
+    C --> F[Frozen ResNet50 backbone]
+    F --> G[Validation-only model decisions]
+    D --> G
+    G --> H[Freeze configuration]
+    H --> I[One final test evaluation]
+    E --> I
+    I --> J[Accuracy, balanced accuracy, macro-F1, confusion matrix]
+```
+
+This is the corrected evaluation contract, not a claim that the historical model achieved clinical performance.
+
 ## Reconstructed approach
 
 The public code demonstrates a safer and more reproducible experiment design:
@@ -35,7 +54,7 @@ The public code demonstrates a safer and more reproducible experiment design:
 6. Evaluate with accuracy, balanced accuracy, macro-F1, and a confusion matrix.
 7. Reserve the supplied test split for one final evaluation after model/threshold choices are frozen.
 
-## Dataset
+## Data and licensing
 
 Source: https://www.kaggle.com/datasets/mohamedhanyyy/chest-ctscan-images
 
