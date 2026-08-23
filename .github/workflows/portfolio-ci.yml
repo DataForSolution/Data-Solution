@@ -1,0 +1,55 @@
+name: Portfolio CI
+
+on:
+  pull_request:
+    branches: [Master]
+  push:
+    branches: [Master]
+
+permissions:
+  contents: read
+
+jobs:
+  structure:
+    name: Structural validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate source, notebooks, links, and sensitive text
+        run: python scripts/validate_repository.py
+      - name: Check whitespace errors
+        run: git diff --check
+
+  tests:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install tested dependency set
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "setuptools>=69" wheel "pytest>=8,<9" "numpy>=1.26,<3" "pandas>=2.2,<3" "scikit-learn>=1.8,<1.10" "torch>=2.7,<3"
+          for project in portfolio/*; do
+            if [ -f "$project/pyproject.toml" ]; then
+              python -m pip install --no-build-isolation --no-deps --editable "$project"
+            fi
+          done
+      - name: Run portfolio unit tests
+        run: |
+          for project in portfolio/*; do
+            if [ -d "$project/tests" ]; then
+              python -m pytest -q "$project/tests"
+            fi
+          done

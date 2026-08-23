@@ -52,6 +52,12 @@ The current branch is intentionally minimal: `README.md` plus the canonical `por
 
 Each featured project maintains its own README, audit notes, source modules, tests, environment definition, and interpretation boundaries as appropriate.
 
+## Continuous integration
+
+Portfolio CI uses Python 3.11 to parse all Python source and notebook code cells, check local Markdown links and sensitive/local-path patterns, detect whitespace errors, and run the 76 network-free unit tests across all ten projects. The shared test environment keeps scikit-learn below 1.10, which also preserves Pima's required `<1.11` bound until its probability-estimation methodology is deliberately migrated and revalidated.
+
+CI deliberately does not execute notebooks, download datasets or models, install optional research frameworks, use GPUs, retrain models, or regenerate project results. Those operations are excluded because the repository's baseline checks protect code and presentation integrity without implying that historical experiments have been reproduced.
+
 ## Use and interpretation
 
 Several projects use healthcare or other high-stakes datasets. They are educational/research engineering projects and **are not clinical, diagnostic, financial, or security decision systems** unless a project explicitly states otherwise.
